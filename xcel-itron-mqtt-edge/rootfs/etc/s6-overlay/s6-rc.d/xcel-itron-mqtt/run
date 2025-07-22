@@ -9,7 +9,7 @@ bashio::log.info "Starting Xcel iTron2MQTT"
 # https://github.com/zaknye/xcel_itron2mqtt/tree/main#options
 if bashio::config.has_value 'mqtt'; then  
     MQTT_SERVER=$(bashio::config 'mqtt.server')
-    MQTT_USER=$(bashio::config 'mqtt.user')
+    MQTT_USER=$(bashio::config 'mqtt.username')
     MQTT_PASSWORD=$(bashio::config 'mqtt.password')
     MQTT_CLIENT_ID=$(bashio::config 'mqtt.client_id')
     if bashio::config.has_value 'mqtt.port'; then
