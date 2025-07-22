@@ -43,4 +43,5 @@ bashio::config.require 'meters'
 for meter in $(bashio::config 'meters|keys'); do
     bashio::config.require "meters[${meter}].meter_ip"
     bashio::config.require "meters[${meter}].meter_port"
+    bashio::config.require "meters[${meter}].meter_name"
 done

@@ -28,11 +28,6 @@ fi
 METERS=""
 for meter in $(bashio::config 'meters|keys'); do
     meter_name=$(bashio::config "meters[${meter}].meter_name")
-    if bashio::var.has_value "${meter_name:-}"; then
-        meter_name="${meter_name}@"
-    else
-        meter_name=""
-    fi
     meter_ip=$(bashio::config "meters[${meter}].meter_ip")
     meter_port=$(bashio::config "meters[${meter}].meter_port")
     METERS="${METERS}|${meter_name}${meter_ip}:${meter_port}"
