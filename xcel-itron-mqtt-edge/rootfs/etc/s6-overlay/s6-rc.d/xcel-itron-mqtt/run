@@ -46,15 +46,13 @@ fi
 if bashio::var.has_value "$MQTT_TOPIC_PREFIX"; then
     export MQTT_TOPIC_PREFIX
 fi
-export METER_IP
-export METER_PORT
 export CERT_PATH
 export KEY_PATH
 # Use openssl.conf to enable unsafe cert usage
 export OPENSSL_CONF=/opt/xcel_itron2mqtt/openssl.conf
 
 # Log information
-bashio::log.info "Meter config: ${METER_IP}:${METER_PORT}"
+bashio::log.info "Meter configs: ${METERS}"
 bashio::log.info "MQTT server config: ${MQTT_SERVER}:${MQTT_PORT}"
 
 cd /opt/xcel_itron2mqtt || return
