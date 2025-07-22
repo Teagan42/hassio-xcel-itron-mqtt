@@ -27,7 +27,7 @@ METERS=""
 for meter in $(bashio::config 'meters|keys'); do
     meter_ip=$(bashio::config "meters[${meter}].meter_ip")
     meter_port=$(bashio::config "meters[${meter}].meter_port")
-    METERS="${METERS}|${meter_ipd}:${meter_port}"
+    METERS="${METERS}|${meter_ip}:${meter_port}"
 done
 
 # Persistent Storage
