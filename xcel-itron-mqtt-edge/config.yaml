@@ -1,7 +1,7 @@
 name: "Xcel iTron MQTT - edge2"
 description: "Bridge from Xcel iTron smart meters to MQTT - edge version"
 url: "https://www.github.com/Teagan42/hassio-xcel-itron-mqtt"
-version: "1.7.23"
+version: "1.7.24"
 slug: "xcel-itron-mqtt-edge2"
 arch:
   - aarch64
@@ -33,5 +33,6 @@ schema:
     server: str?
     port: port?
     user: str?
+    client_id: str?
     password: password?
     topic_prefix: str?

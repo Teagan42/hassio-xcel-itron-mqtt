@@ -11,6 +11,7 @@ if bashio::config.has_value 'mqtt'; then
     MQTT_SERVER=$(bashio::config 'mqtt.server')
     MQTT_USER=$(bashio::config 'mqtt.user')
     MQTT_PASSWORD=$(bashio::config 'mqtt.password')
+    MQTT_CLIENT_ID=$(bashio::config 'mqtt.client_id')
     if bashio::config.has_value 'mqtt.port'; then
         MQTT_PORT=$(bashio::config 'mqtt.port' 1883)
     fi
@@ -22,6 +23,7 @@ else # Use HA Supervisor service API to get MQTT config
     MQTT_USER=$(bashio::services mqtt "username")
     MQTT_PASSWORD=$(bashio::services mqtt "password")
     MQTT_PORT=$(bashio::services mqtt "port")
+    MQTT_CLIENT_ID=$(bashio::services mqtt "client_id")
 fi
 METERS=""
 for meter in $(bashio::config 'meters|keys'); do
@@ -38,6 +40,7 @@ KEY_PATH=${CERT_DIR}/$(bashio::config 'key_file')
 # Export variables
 export MQTT_SERVER
 export MQTT_USER
+export MQTT_CLIENT_ID
 export MQTT_PASSWORD
 export METERS
 if bashio::var.has_value "$MQTT_PORT"; then
