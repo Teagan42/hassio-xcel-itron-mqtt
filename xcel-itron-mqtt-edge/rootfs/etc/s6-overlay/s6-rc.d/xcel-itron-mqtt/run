@@ -23,8 +23,12 @@ else # Use HA Supervisor service API to get MQTT config
     MQTT_PASSWORD=$(bashio::services mqtt "password")
     MQTT_PORT=$(bashio::services mqtt "port")
 fi
-METER_IP=$(bashio::config 'meter_ip')
-METER_PORT=$(bashio::config 'meter_port')
+METERS=""
+for meter in $(bashio::config 'meters|keys'); do
+    meter_ip=$(bashio::config "meters[${meter}].meter_ip")
+    meter_port=$(bashio::config "meters[${meter}].meter_port")
+    METERS="${METERS}|${meter_ipd}:${meter_port}"
+done
 
 # Persistent Storage
 CERT_DIR=$(bashio::config 'cert_dir')
@@ -35,6 +39,7 @@ KEY_PATH=${CERT_DIR}/$(bashio::config 'key_file')
 export MQTT_SERVER
 export MQTT_USER
 export MQTT_PASSWORD
+export METERS
 if bashio::var.has_value "$MQTT_PORT"; then
     export MQTT_PORT
 fi

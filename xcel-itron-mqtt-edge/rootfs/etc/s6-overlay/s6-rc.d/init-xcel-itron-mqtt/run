@@ -37,6 +37,10 @@ if bashio::config.is_empty "ldfi"; then
   bashio::addon.option "ldfi" "${ldfi}"
 fi
 
-# need meter_ip and meter_port
-bashio::config.require 'meter_ip' 
-bashio::config.require 'meter_port' 
+# need meters
+bashio::config.require 'meters'
+# ensure meter ip and port
+for meter in $(bashio::config 'meters|keys'); do
+    bashio::config.require "meters[${meter}].meter_ip")
+    bashio::config.require "meters[${meter}].meter_port")
+done
