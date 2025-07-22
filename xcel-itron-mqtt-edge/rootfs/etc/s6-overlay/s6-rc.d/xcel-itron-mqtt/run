@@ -53,7 +53,7 @@ export CERT_PATH
 export KEY_PATH
 # Use openssl.conf to enable unsafe cert usage
 export OPENSSL_CONF=/opt/xcel_itron2mqtt/openssl.conf
-
+bashio::log.info "$(bashio::config 'mqtt')"
 # Log information
 bashio::log.info "Meter configs: ${METERS}"
 bashio::log.info "MQTT server config: ${MQTT_SERVER}:${MQTT_PORT} ${MQTT_CLIENT_ID} ${MQTT_USER}"
