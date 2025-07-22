@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG CODE_OWNER=Teagan42
-ARG XCEL_ITRON2MQTT_SHA=aca2807a08c69499713636136014689a3729824a
+ARG XCEL_ITRON2MQTT_SHA=e6c4ab84e5a50d55636439197708d1f1ae549fa1
 
 # Copy python source from upstream
 RUN curl -L https://github.com/${CODE_OWNER}/xcel_itron2mqtt/archive/${XCEL_ITRON2MQTT_SHA}.zip -o /tmp/main.zip && \
