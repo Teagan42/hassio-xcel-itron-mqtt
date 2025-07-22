@@ -46,7 +46,7 @@ export METERS
 if bashio::var.has_value "$MQTT_PORT"; then
     export MQTT_PORT
 fi
-if bashio::var.has_value "$MQTT_TOPIC_PREFIX"; then
+if bashio::var.has_value "${MQTT_TOPIC_PREFIX-}"; then
     export MQTT_TOPIC_PREFIX
 fi
 export CERT_PATH
