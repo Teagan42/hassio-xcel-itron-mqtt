@@ -56,7 +56,7 @@ export OPENSSL_CONF=/opt/xcel_itron2mqtt/openssl.conf
 
 # Log information
 bashio::log.info "Meter configs: ${METERS}"
-bashio::log.info "MQTT server config: ${MQTT_SERVER}:${MQTT_PORT}"
+bashio::log.info "MQTT server config: ${MQTT_SERVER}:${MQTT_PORT} ${MQTT_CLIENT_ID} ${MQTT_USER}"
 
 cd /opt/xcel_itron2mqtt || return
 exec python3 -Wignore main.py
